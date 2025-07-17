@@ -1,4 +1,4 @@
-package org.example;
+package org.jaz.james.tutorial;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -169,7 +169,7 @@ public class Beans {
         this.code = code;
     }
     public static void main(String[] args) {
-        String filePath = "C:\\Users\\user\\Desktop\\0000bean-roast.xlsx"; // Excel 路徑
+        String filePath = "resources/roast.xlsx"; // Excel 路徑
 
         List<Beans> beanList = new ArrayList<>();
 

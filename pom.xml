@@ -1,0 +1,19 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jaz.studio</groupId>
+    <artifactId>mama-coffee-pos</artifactId>
+    <version>1</version>
+
+    <dependencies> <!-- Apache POI for Excel -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.4.1</version> <!-- Use the latest version available -->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.4.1</version> <!-- Use the latest version available -->
+        </dependency>
+    </dependencies>
+</project>

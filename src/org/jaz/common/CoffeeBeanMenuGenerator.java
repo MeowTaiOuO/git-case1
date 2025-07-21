@@ -11,6 +11,9 @@ import org.jaz.james.tutorial.CoffeeBean;
 
 public class CoffeeBeanMenuGenerator {
 
+    private static String PRICE_CELL_3_FMT = "400g %1$d \n200g %2$d";
+    private static String PPRICE_CELL_4_FMT = "%1$d";
+
     public void generateTitle(Row row) {
         //產生豆單 title
     }
@@ -57,10 +60,36 @@ public class CoffeeBeanMenuGenerator {
     }
 
     private void fillCell3(Cell cell,CoffeeBean coffeeBean) {
+        Sheet sheet = cell.getSheet();
+        CellStyle cs = cell.getSheet().getWorkbook().createCellStyle();
+        cs.setWrapText(true);
+        cs.setAlignment(HorizontalAlignment.CENTER);
+        cs.setVerticalAlignment(VerticalAlignment.CENTER);
+        cell.setCellStyle(cs);
 
+        //先設成高價
+        int retail400g = 999999;
+        int retail200g = 999999;
+        if  (coffeeBean.getRetailPrice() != null) {
+            if (coffeeBean.getRetailPrice().compareTo(coffeeBean.getCost()) > 0) {  //一定售價一定比成本高才把售價拿出來
+                retail400g = coffeeBean.getRetailPrice().intValue();
+                retail200g = retail400g / 2;
+            }
+        }
+
+
+        cell.setCellValue(String.format(PRICE_CELL_3_FMT, retail400g, retail200g));
     }
 
     private void fillCell4(Cell cell,CoffeeBean coffeeBean) {
+        Sheet sheet = cell.getSheet();
+        CellStyle cs = cell.getSheet().getWorkbook().createCellStyle();
+        cs.setWrapText(true);
+        cs.setAlignment(HorizontalAlignment.CENTER);
+        cs.setVerticalAlignment(VerticalAlignment.CENTER);
+        cell.setCellStyle(cs);
+
+        //計算5包的售價，就是 零售價除4，無條件進位到 10 或 5
 
     }
 

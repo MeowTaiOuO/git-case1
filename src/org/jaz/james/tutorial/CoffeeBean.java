@@ -200,7 +200,7 @@ public class CoffeeBean {
 
             for (int i = 1; i < canBeSellBeans.size(); i++) {
                 menuGenerator.generateRow(sheet.createRow(i + 3), canBeSellBeans.get(i));
-                System.out.println(canBeSellBeans.get(i));  //印出來看看
+                System.out.println("編號:" + canBeSellBeans.get(i).getId() + ",存量:" +canBeSellBeans.get(i).getStockGrams());  //印出來看看
             }
 
             //關檔

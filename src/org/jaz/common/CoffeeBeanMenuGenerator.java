@@ -34,7 +34,7 @@ public class CoffeeBeanMenuGenerator {
     }
 
     private void fillCell1(Cell cell, CoffeeBean coffeeBean) {
-
+        cell.setCellValue( coffeeBean.getId() + "\n" + coffeeBean.getCountry() + "\n" + coffeeBean.getProcessMethod());
     }
 
     private void fillCell2(Cell cell,CoffeeBean coffeeBean) {

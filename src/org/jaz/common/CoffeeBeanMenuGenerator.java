@@ -1,7 +1,11 @@
 package org.jaz.common;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.jaz.james.tutorial.CoffeeBean;
 
@@ -34,6 +38,17 @@ public class CoffeeBeanMenuGenerator {
     }
 
     private void fillCell1(Cell cell, CoffeeBean coffeeBean) {
+        Sheet sheet = cell.getSheet();
+        CellStyle cs = cell.getSheet().getWorkbook().createCellStyle();
+        cs.setWrapText(true);
+        cs.setAlignment(HorizontalAlignment.CENTER);
+        cs.setVerticalAlignment(VerticalAlignment.CENTER);
+
+
+
+        cell.getRow().setHeightInPoints( 3 * sheet.getDefaultRowHeightInPoints());
+        cell.setCellStyle(cs);
+
         cell.setCellValue( coffeeBean.getId() + "\n" + coffeeBean.getCountry() + "\n" + coffeeBean.getProcessMethod());
     }
 

@@ -203,6 +203,11 @@ public class CoffeeBean {
                 System.out.println("編號:" + canBeSellBeans.get(i).getId() + ",存量:" +canBeSellBeans.get(i).getStockGrams());  //印出來看看
             }
 
+            //關檔 前 autofit columns, 參考 https://blog.csdn.net/l18848956739/article/details/86646944
+            for (int i = 1; i < 5; i++) {
+                sheet.autoSizeColumn((short)i);
+                sheet.setColumnWidth((short)i, (short)sheet.getColumnWidth(i)*17/10);
+            }
             //關檔
             try (OutputStream fileOut = new FileOutputStream(outputPath)) {
                 workbook.write(fileOut);

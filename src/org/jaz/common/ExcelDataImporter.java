@@ -109,10 +109,13 @@ public class ExcelDataImporter {
         if (cell == null) return 0;
         if (cell.getCellType() == CellType.NUMERIC) {
             return cell.getNumericCellValue();
+        } else if (cell.getCellType() == CellType.FORMULA && cell.getCachedFormulaResultType() == CellType.NUMERIC) {
+            return cell.getNumericCellValue();
         } else {
             try {
                 return Double.parseDouble(cell.toString().trim());
             } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
                 return 0;
             }
         }
